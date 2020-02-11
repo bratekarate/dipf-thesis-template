@@ -1,0 +1,176 @@
+% v1.7 - 2014-01-07
+% - font color changed
+% - titlepage changed
+% v1.6 - 2013-05-13
+
+\documentclass[twoside,11pt,titlepage,a4paper,english,bibliography=totocnumbered,listof=numbered]{scrbook}
+
+% Template Style
+\include{style}
+
+% custom hyphenation					% add words to this list to prevent hyphenation
+\hyphenation{
+ASCII
+TCP
+}
+
+%make readable references
+\usepackage{listings}
+\usepackage{color}
+\usepackage{pdfpages}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+\usepackage{placeins}
+\usepackage{rotating}
+\usepackage[pdftex,pdfpagelabels=true]{hyperref}
+\hypersetup{%
+	pdftitle={Thesis Title},
+	pdfauthor={Thesis Author},
+	pdfkeywords={key1, key2, key3},
+	pdfsubject={Thesis Subject}
+}
+
+\begin{document}
+
+%--------------------------------------------------------------
+\frontmatter
+
+%\begin{titlepage}
+%\AddToShipoutPicture*{
+%\put(0,0){
+%\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio=false]{images/titlepage.pdf}}}
+%\strut
+%\end{titlepage}
+%\thispagestyle{empty}
+
+%titlepage
+
+% SEE http:
+
+\begin{titlepage}
+	\AddToShipoutPicture*{
+		\put(0,0){
+			\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio=false]{images/titlepageEduTec.pdf}
+		}
+	}
+
+	\strut
+	\hfill
+	\vspace{0.5cm}
+	\begin{flushleft}
+		\begin{spacing}{.9}
+			\large
+			\textbf{The present work was submitted to Lehr- und Forschungsgebiet Educational Technologies at DIPF}
+		\end{spacing}
+		\vspace{2cm}
+		\Huge
+		\textcolor{DarkBlue}{\textbf{Thesis/Project Title}}\\
+		\large
+		\vspace{2cm} 
+	 	Master/Bachelor-Thesis\\
+	 	\vspace{2cm} 
+	 	Presented by\\
+	 	\vspace{0.3cm} 
+	 	\textbf{LastName, FirstName}\\
+	 	\vspace{0.3cm} 
+	 	111111\\
+	 	\vspace{2.5cm}
+	 	\begin{tabular}{ll}
+	 		First examiner: & Prof. Dr. Hendrik Drachsler\\
+	 		\\
+	 		Second examiner: & Prof. Dr. \\
+	 		\\
+	 		Supervisors: &  \\
+	 	\end{tabular}
+	 	
+	\end{flushleft}
+	\begin{flushright}
+		\vspace{2.5cm} 
+	 	Frankfurt, \today\\
+	\end{flushright}
+
+\end{titlepage}
+\thispagestyle{empty}
+
+\cleardoublepage
+
+\newpage
+\section*{\thispagestyle{empty}Erklärung}
+Hiermit versichere ich, dass ich diese Arbeit selbst\-ständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. \\
+
+\noindent I hereby declare that I have created this work completely on my own and used no other sources or tools than the ones listed.
+
+\vspace{30 mm}
+\begin{flushright}
+
+\rule{90mm}{1pt}
+
+Frankfurt, \today \hspace{15 mm} Full Name
+\end{flushright}
+\clearpage
+
+\cleardoublepage{}
+
+\newpage
+\input{acknowledgments}
+
+\input{00_abstract}
+%\input{00_zusammenfassung}
+\thispagestyle{empty}
+
+\tableofcontents{\thispagestyle{empty}}
+
+%--------------------------------------------------------------
+\mainmatter
+
+%\part{}						% optional: use parts to structure your thesis
+\input{01_introduction}
+\input{02_related_work}
+\input{03_concept_and_design}
+\input{04_implementation}
+\input{05_evaluation}
+\input{06_conclusion}
+
+%--------------------------------------------------------------
+\backmatter
+
+\listoftables
+\listoffigures
+
+\setwidesite{}		
+				% Set page to be wider for bibliography
+\printbibliography
+
+
+\begin{appendices}
+
+\input{a01_listings}
+
+
+\end{appendices}
+
+\end{document}

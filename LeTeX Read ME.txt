@@ -1,0 +1,10 @@
+MiKTeX
+https://miktex.org/download
+
+
+
+
+then 
+
+Text studio
+https://www.texstudio.org/
